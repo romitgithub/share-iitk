@@ -56,4 +56,7 @@ def file_submit(request):
 		a.save()
 		return HttpResponseRedirect('/')
 
-#def file_download(request):
+def download(request):
+	f, metadata = client.get_file_and_metadata('/magnum-opus.txt')
+	out = open('magnum-opus.txt', 'wb')
+	return HttpResponse(out)

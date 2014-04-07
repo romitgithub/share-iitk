@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 
-from share.views import upload_page, about, contact, home, file_submit
+from share.views import upload_page, about, contact, home, file_submit, download
 
 from django.contrib import admin
 admin.autodiscover()
@@ -17,5 +17,6 @@ urlpatterns = patterns('',
     url(r'^file_submit/$', file_submit),
     url(r'^$', home),
     url(r'^home/', home),
+    url(r'^download/', download),
 
 )
