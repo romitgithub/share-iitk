@@ -3,7 +3,19 @@ from django.shortcuts import render, render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 
+import dropbox
 from share.models import FileData
+
+app_key = '4z2auu2o4v1ms76'
+app_secret = '8c29694u73eb515'
+flow = dropbox.client.DropboxOAuth2FlowNoRedirect(app_key, app_secret)
+authorize_url = flow.start()
+code = 'P870X6WAn0cAAAAAAAASdK9LmT_Vrd_md9OhhcPwhYI'
+access_token, user_id = flow.finish(code)
+client = dropbox.client.DropboxClient(access_token)
+#print client.account_info()
+#response = client.put_file('/magnum-opus.txt', f)
+
 
 def upload_page(request):
 	#return HttpResponse("upload page")
@@ -21,6 +33,7 @@ def home(request):
 
 def file_submit(request):
 	if request.method == "POST":
+		return HttpResponse(client.account_info())
 		course_name = request.POST['course-name']
 		department_code = request.POST['dept']
 		course_code = request.POST['course-code']
