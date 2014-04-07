@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+
+    <title>IIT Kanpur | Share</title>
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/layouts/side-menu-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="http://samarthbansal.com/share-iitk/css/layouts/side-menu.css">
+    <!--<![endif]-->
+</head>
+<body>
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="#">ShareIITK</a>
+
+            <ul>
+                <li><a href="/home/">Home</a></li>
+                <li><a href="/upload/">Upload New</a></li>
+                <li><a href="my-upload.html">My Uploads</a></li>
+                <li><a href="/about/">About</a></li>
+                <li class="menu-item-divided pure-menu-selected"><a href="/contact/">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="main">
+        <div class="header">
+            <h1>SHARE | IIT Kanpur</h1>
+            <h2>Assignments. Quizzes. Exams : All at one place!</h2>
+        </div>
+
+        <div class="content">
+            <h2 class="content-subhead">Contact</h2>
+            <p>
+            If you find a bug in the application, or want to contribute to the development, drop in a line at samarthb@iitk.ac.in (Samarth Bansal)
+            <br>
+            <br>
+            If you would like to volunteer in monitoring the file uploads, and getting people to upload stuff so that it remains lively, drop in a line at bpst@iitk.ac.in (Bhanu Pratap Singh Tanwar)
+            </p>
+        </div>
+
+       
+    </div>
+</div>
+<script src="js/ui.js"></script>
+
+
+</body>
+</html>

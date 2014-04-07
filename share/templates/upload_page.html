@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">
+
+    <title>IIT Kanpur | Share</title>
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/layouts/side-menu-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="http://samarthbansal.com/share-iitk/css/layouts/side-menu.css">
+    <!--<![endif]-->
+</head>
+<body>
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="#">ShareIITK</a>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="menu-item-divided pure-menu-selected"><a href="upload.html">Upload New</a></li>
+                <li><a href="my-upload.html">My Uploads</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="main">
+        <div class="header">
+            <h1>SHARE | IIT Kanpur</h1>
+            <h2>Assignments. Quizzes. Exams : All at one place!</h2>
+        </div>
+
+        <div class="content">
+            <h2 class="content-subhead">Instructions</h2>
+            <p>
+                <ul>
+                    <li>Enter the course code and course name</li>
+                    <li>Upload a file</li>
+                    <li>Make sure you are uploading the correct file</li>
+                    <li>If you have image files for an exam, zip them together an upload. This would be convenient for students. </li>
+                </ul>
+            </p>
+        </div>
+
+        <div class = "content">
+            <form class="pure-form pure-form-aligned">
+                <fieldset>
+                    <div class="pure-control-group">
+                        <label for="course-name">Course Name</label>
+                        <input id="course-name" type="text" placeholder="eg Electrodynamics">
+                    </div>
+
+                    <div class="pure-control-group">
+                        <label for="course-code">Course Code</label>
+                        <input id="course-code" type="text" placeholder="PHY103">
+                    </div>
+
+                    <div class="pure-control-group">
+                        <label for="category">Category</label>
+                        <select id="state">
+                            <option>Assignment</option>
+                            <option>Quiz</option>
+                            <option>Mid Sem</option>
+                            <option>End Sem</option>
+                            <option>Other</option>
+                        </select>                        
+                    </div>
+
+                    <div class="pure-control-group">
+                        <label for="file">File</label>
+                        <input id="file" type="file" placeholder="File Upload">
+                    </div>
+
+                    <div class="pure-controls">
+                        <button type="submit" class="pure-button pure-button-primary">Submit</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="js/ui.js"></script>
+
+
+</body>
+</html>
