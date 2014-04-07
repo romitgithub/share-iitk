@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, render_to_response
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 
 from share.models import FileData
@@ -26,13 +26,15 @@ def file_submit(request):
 		course_code = request.POST['course-code']
 		category = request.POST['category']
 		a = FileData(course_name = course_name, department_code = department_code, course_code = course_code, category = category)
-		a.save()
+
 		if request.POST['year']!='':
 			a.year = int(request.POST['year'])
-		"""if 'prof' in request.POST:
-			a.professor = request.POST['prof']
-		if 'description' in request.POST:
-			a.description = request.POST['description']"""
+
+		"""if request.POST['prof']!='':
+			a.year = request.POST['prof']"""
+
+		"""if request.POST['description']!='':
+			a.year = request.POST['description']"""
 
 		a.save()
-		return HttpResponseRedirect('/home/')
+		return HttpResponseRedirect('/')
