@@ -16,6 +16,6 @@ urlpatterns = patterns('',
     url(r'^contact/$', contact),
     url(r'^file_submit/$', file_submit),
     url(r'^$', home),
-    url(r'/home/', home),
+    url(r'^home/', home),
 
 )
