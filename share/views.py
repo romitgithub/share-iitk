@@ -56,4 +56,4 @@ def file_submit(request):
 		a.save()
 		return HttpResponseRedirect('/')
 
-def file_download(request):
+#def file_download(request):
