@@ -57,7 +57,7 @@
         </div>
 
         <div class = "content">
-            <form class="pure-form pure-form-aligned" action = "/file_submit/" method = "POST">
+            <form class="pure-form pure-form-aligned" action = "/file_submit/" method = "POST" enctype="multipart/form-data">
                 {%csrf_token%}
 
                 <fieldset>
@@ -112,7 +112,7 @@
 
                     <div class="pure-control-group">
                         <label for="file">File</label>
-                        <input id="file" type="file" placeholder="File Upload" name = 'file' required>
+                        <input id="file" type="file" placeholder="File Upload" name = "file" required>
                     </div>
 
                     <div class="pure-controls">
