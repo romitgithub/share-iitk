@@ -41,7 +41,6 @@ def file_submit(request):
 		f = request.FILES['file']
 		name = '/'+f.name 
 		response = client.put_file(name, f)
-		return HttpResponse(response)
 
 		a = FileData(course_name = course_name, department_code = department_code, course_code = course_code, category = category)
 
@@ -56,3 +55,5 @@ def file_submit(request):
 
 		a.save()
 		return HttpResponseRedirect('/')
+
+def file_download(request):
