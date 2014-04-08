@@ -12,6 +12,9 @@ flow = dropbox.client.DropboxOAuth2FlowNoRedirect(app_key, app_secret)
 authorize_url = flow.start()
 code = 'P870X6WAn0cAAAAAAAASdK9LmT_Vrd_md9OhhcPwhYI'
 access_token, user_id = flow.finish(code)"""
+
+token = 'P870X6WAn0cAAAAAAAASc3c-hsgqIOsdo5crALuuL5e6dyMffAyCznBJjvz9Cp1r'
+
 client = dropbox.client.DropboxClient('P870X6WAn0cAAAAAAAASc3c-hsgqIOsdo5crALuuL5e6dyMffAyCznBJjvz9Cp1r')
 #print client.account_info()
 #response = client.put_file('/magnum-opus.txt', f)
@@ -41,8 +44,10 @@ def file_submit(request):
 		f = request.FILES['file']
 		name = '/'+f.name 
 		response = client.put_file(name, f)
-
-		a = FileData(course_name = course_name, department_code = department_code, course_code = course_code, category = category)
+		url = dropbox.client.DropboxClient(token).share(name)
+		url = url['url']
+		#url = 'a'
+		a = FileData(course_name = course_name, department_code = department_code, course_code = course_code, category = category, file_url = url)
 
 		if request.POST['year']!='':
 			a.year = int(request.POST['year'])
