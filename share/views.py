@@ -18,7 +18,7 @@ token = 'P870X6WAn0cAAAAAAAASc3c-hsgqIOsdo5crALuuL5e6dyMffAyCznBJjvz9Cp1r'
 client = dropbox.client.DropboxClient('P870X6WAn0cAAAAAAAASc3c-hsgqIOsdo5crALuuL5e6dyMffAyCznBJjvz9Cp1r')
 #print client.account_info()
 #response = client.put_file('/magnum-opus.txt', f)
-
+MAX_UPLOAD_SIZE = 5242880
 
 def upload_page(request):
 	#return HttpResponse("upload page")
@@ -27,11 +27,18 @@ def upload_page(request):
 def about(request):
 	return render_to_response('about.html', {}, context_instance = RequestContext(request))
 
+def landing(request):
+	return render_to_response('landing.html', {}, context_instance = RequestContext(request))
+
 def contact(request):
 	return render_to_response('contact.html', {}, context_instance = RequestContext(request))
 
 def home(request):
-	file_list = FileData.objects.all()
+	file_list = FileData.objects.filter(approved = 'Y')
+	return render_to_response('index.html', {'list':file_list}, context_instance = RequestContext(request))
+
+def moderator(request):
+	file_list = FileData.objects.filter(approved = 'N')
 	return render_to_response('index.html', {'list':file_list}, context_instance = RequestContext(request))
 
 def file_submit(request):
@@ -42,6 +49,8 @@ def file_submit(request):
 		course_code = request.POST['course-code']
 		category = request.POST['category']
 		f = request.FILES['file']
+		if len(f) > 5242880:
+			return render_to_response('upload.html', {'error': 'File should be under 5 MB'}, context_instance = RequestContext(request))		
 		name = '/'+f.name 
 		response = client.put_file(name, f)
 		url = dropbox.client.DropboxClient(token).share(name)
@@ -59,9 +68,4 @@ def file_submit(request):
 			a.year = request.POST['description']"""
 
 		a.save()
-		return HttpResponseRedirect('/')
-
-def download(request):
-	f, metadata = client.get_file_and_metadata('/magnum-opus.txt')
-	out = open('magnum-opus.txt', 'wb')
-	return HttpResponse(out)
+		return render_to_response('upload.html', {'success':'Thanks. File would be availabe after admin approval'}, context_instance = RequestContext(request))

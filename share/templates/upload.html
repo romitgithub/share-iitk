@@ -53,6 +53,8 @@
                     <li>Make sure you are uploading the correct file</li>
                     <li>If you have image files for an exam, zip them together an upload. This would be convenient for students. </li>
                 </ul>
+
+                <font color = "green">{{success}}</font>
             </p>
         </div>
 
@@ -62,11 +64,13 @@
 
                 <fieldset>
                     <legend>Upload Form</legend>
+                    <div class="pure-control-group">                    
+                        <font color = "red">{{error}}</font>                        
+                    </div>
                     <div class="pure-control-group">
                         <label for="course-name">Course Name</label>
                         <input id="course-name" type="text" placeholder="eg Electrodynamics" name = "course-name" required>
                     </div>
-
 
                     <div class="pure-control-group">
                         <label for="dept">Course Code</label>
